@@ -1,0 +1,198 @@
+                    
+                               Contact Management System
+                    -----------------------------------------------
+
+        Basic Building Blocks
+        ---------------------
+1. MOdule - Used to add basic 3rd party libraries
+
+2. Component - To create HTML pages(html, css, ts)
+
+3. Selector - Used to select the component
+
+4. Services - Used to share data between components
+
+5. Dependency Injection - Data share between two dependent classes
+
+        
+        CMS Steps
+        ---------
+1. Create Angular project - ng new contact_app
+
+2. cd contact_app
+
+3. code .
+
+4. Project Run - ng serve --open
+
+5. Install bootstrap, font awesome, google fonts
+
+      1) Install bootstrap
+      
+      2) font awesome install - npm i @fortawesome/fontawesome-free 
+      
+      3) Config - To avoid site down problem
+
+6. Component creation 
+
+      1) Contact manager - (It will display all contact and manage them)
+                         - ng g c contactManager 
+      
+      2) Add contact - (Add new contact) 
+                     - ng g c addContact  
+      
+      3) Update contact - (Update existing contact) 
+                        - ng g c updateContact
+      
+      4) View contact - (View contact) 
+                      - ng g c viewContact
+
+7. Routing - Setup path for each component that we need to display in web page.
+      app-routing.module.ts (filename) , Routes[]  
+
+      1) http://localhost:4200/contact-manager (/admin)
+
+         Routes[
+                {
+                        path:'',redirectedTo:'contact/admin',pathMatch:'full'
+                        //http://localhost:4200
+                },
+                {
+                        path: 'contact/admin',component:contactManagerComponent 
+                },
+                {
+                        path:'contact/add',component:addComponent
+                },
+         ]
+
+      2) Use <router-outlet></router-outlet> selector inside the app.component.html page to view the requested component
+
+8. Create PageNotFound component - ng g c PageNotFound
+   To set path for it - 
+     {
+        path:'**',component:PageNotFoundComponent
+     }
+
+9. Create component for Navbar and Footer
+        ng g c Navbar
+        ng g c Footer  
+
+10. Complete design of frontend components
+
+11. API creation
+    Open jsonplaceholder site -> my json server (for demo purposes)
+
+12. Server creation
+      
+      1) Create a folder inside the project folder -> src/server
+      
+      2) Create a db.json file in the server folder    
+      
+      3) Add your data into the db.json file
+      
+      4) Backend setup
+          a) Create a package.json for server -> npm init
+          b) For running db.json file -> npm i json-server
+          c) run -> npm start
+                    Error -> in package.json
+                    "scripts": {
+                        "start":json-server --watch db.json --port 3000"
+                    },
+           
+           How to start json server
+           a)cd src
+           b)cd server
+           c)npm start
+
+13. Create a model for contact and group
+     
+      1) Create model folder in src folder
+     
+      2) Create myContact.ts file in model folder   
+     
+      3) Create myGroup.ts file in model folder               
+      
+14. Data fetching
+    JS - Data fetching -> promise -> .then() catch()
+    TS - Data fetching -> observable -> .subscribe() catch() - rxjs (To resolve asynchronous action)  
+
+15. Create Service
+    [Services - Reusable code that can be shared between components]
+        syntax :- ng g s service_name
+
+        ng g s service/api - (service - folder name and api - service name)  
+
+16. To get http methods - get,post,put,delete
+      
+      1) Import HttpClientModule in app.module.ts
+
+17. Dependency Injection - Data share between two dependent classes
+        - perform inside the constructor
+        - syntax :- access specifier variable_name: class_name
+
+18. Dependency Injection in api Services
+        private http:HttpClient
+
+19. Data Binding - Data sharing inside a Component
+      
+      1) One way Data Binding - Data passes through one direction
+               component - ts file
+               view - html file
+               html -> ts or ts ->html
+
+          a) Component to view (ts -> html)
+
+             i) String interpolation {variable_name}
+             ii)Property Binding [attribute_name]="property_name"
+
+          b) View to component (html -> ts)
+
+             i) Event binding - (event)="function_name()"
+                  Note:- Js - onClick
+                         Ts - click
+             ii) Event binding using $event - (event)=function_name($event)            
+        
+        2) Two way data binding - Data passes through two directions
+               html -> ts / view to component
+               ts -> html / component to view
+
+20. Directives - To manipulate html DOM 
+     
+      1) Component Directives
+     
+      2) Structural Directives
+          a) *ngIf="condition"
+          b) *ngFor="let var_name of array_name"
+
+21. Activated Route - It provides access to information about a route associated with a component that is loaded in an outlet
+      parameters - url
+                 - params
+
+22. Understanding Pipes
+     
+      1) Use Pipes to transform strings, currency amounts, dates, and other data for display.
+
+      2) DataPipe: Formats a date value according to locale rules.
+
+      3) Searching - Pipes
+
+      4) Creating Pipes - ng g p pipefolder/pipe_name(syntax)
+                        - ng g p pipes/filter
+
+      5) Pipe transform INTERFACE/CLASS: An interface that is implemented by pipes in order to perform a transformation. Angular invokes the transform method with the value of a binding as the first argument, and any parameters as the second argument in list form.
+          - interface PipeTransform {
+              transform(value: any, ...args: any[]): any
+            } 
+      6) Parameters for Searching
+           a) allContacts - array (array of contact details)
+           b) searchKey - To enter a search value
+           c) propName - The value to based on a content 
+
+23. Event Binding - for Searching
+
+24. Add contact - Two way data binding
+                  ngModel - import forModules in appModules
+                  [(ngModel)]="property_name"  (syntax)
+
+
+

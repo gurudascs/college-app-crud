@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center my-4">View Student Details</h1>
+            <p style="text-align: justify;">Join SB and be part of a living legacy of 100 years…and then You be the future ambassadors of SB to the coming generations. 
+
+                Welcome to the Citadel of Knowledge and Vision.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5 mt-5">
+            <ul class="list-group">
+                <li class="list-group-item">Name : {{contact.name}}</li>
+                <li class="list-group-item">Email : {{contact.email}}</li>
+                <li class="list-group-item">Mobile : {{contact.phone}}</li>
+                <li class="list-group-item">Date of Birth : {{contact.company}}</li>
+                <li class="list-group-item">Type of Admission : {{contact.title}}</li>
+                <li class="list-group-item">Course : {{groupName}}</li>
+            </ul>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
+            <img src="{{contact.photo}}" width="50%" alt="">
+        </div>
+
+    </div>
+
+    <a routerLink="/" class="btn btn-outline-danger mt-4">Back</a>
+</div>

@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Bruno+Ace+SC&family=Lobster&family=Roboto+Mono:ital,wght@1,300&family=Sono:wght@300&display=swap");
+h1{
+    font-family: 'Bruno Ace', cursive;
+}
+body{
+
+        background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/0b04f086128681.5d909dad4bd12.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    
+}
